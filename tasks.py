@@ -1,7 +1,8 @@
 import datetime
+from rich.text import Text #added later in the commit history
 class Task:
 
-    id_count = 1
+    id_count = 1 #for  auto id
     def __init__(self, task, category, *args):
         self.task = task
         self.category = str(category)
@@ -40,3 +41,52 @@ class Task:
             return datetime.datetime.now() > due if not self.completed else False
         except Exception:
             return False
+
+    def status(self):
+        if self.completed:
+            return "✅ Done"
+        elif self.is_overdue():
+            return "🚨 Overdue"
+        else:
+            return "⏳ In Progress"
+        
+    def status_display(self):
+        status_text = self.status()
+        color_map = {
+            "✅ Done": "green",
+            "⏳ In Progress": "white",
+            "🚨 Overdue": "red"
+        }
+        return Text(status_text, style=color_map.get(status_text, "yellow"))
+
+    def __str__(self):
+        duedate = self.date_due if self.date_due is not None else "--:--"
+        return (
+            f"[{self.status()}] Task #{self.id}: {self.task}\n"
+            f"  • Category: {self.category}\n"
+            f"  • Added: {self.date_added}\n"
+            f"  • Due: {duedate}"
+        )
+    
+    def to_dict(self):
+        return(
+            {
+                "id": self.id,
+                "task": self.task,
+                "category": self.category,
+                "date_added": self.date_added,
+                "date_due": self.date_due,
+                "completed": self.completed
+            }
+        )
+    @classmethod
+    def from_dict(cls,data):
+        task = cls(
+            data["task"],
+            data["category"],
+            data["date_due"],
+            data["id"]
+        )
+        task.date_added = data["date_added"]
+        task.completed = data["completed"]
+        return task

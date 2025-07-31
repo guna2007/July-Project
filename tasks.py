@@ -67,3 +67,26 @@ class Task:
             f"  • Added: {self.date_added}\n"
             f"  • Due: {duedate}"
         )
+    
+    def to_dict(self):
+        return(
+            {
+                "id": self.id,
+                "task": self.task,
+                "category": self.category,
+                "date_added": self.date_added,
+                "date_due": self.date_due,
+                "completed": self.completed
+            }
+        )
+    @classmethod
+    def from_dict(cls,data):
+        task = cls(
+            data["task"],
+            data["category"],
+            data["date_due"],
+            data["id"]
+        )
+        task.date_added = data["date_added"]
+        task.completed = data["completed"]
+        return task

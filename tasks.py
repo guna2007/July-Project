@@ -28,4 +28,15 @@ class Task:
             self.id = Task.id_count
             Task.id_count+=1
 
-   
+    def mark_done(self):
+            self.completed = True
+ 
+    def mark_undone(self):
+            self.completed = False
+
+    def is_overdue(self):
+        try:
+            due = datetime.datetime.strptime(self.date_due, "%d/%m/%Y::%H:%M")
+            return datetime.datetime.now() > due if not self.completed else False
+        except Exception:
+            return False

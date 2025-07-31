@@ -58,3 +58,12 @@ class Task:
             "🚨 Overdue": "red"
         }
         return Text(status_text, style=color_map.get(status_text, "yellow"))
+
+    def __str__(self):
+        duedate = self.date_due if self.date_due is not None else "--:--"
+        return (
+            f"[{self.status()}] Task #{self.id}: {self.task}\n"
+            f"  • Category: {self.category}\n"
+            f"  • Added: {self.date_added}\n"
+            f"  • Due: {duedate}"
+        )

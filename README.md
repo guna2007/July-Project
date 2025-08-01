@@ -150,17 +150,23 @@ This mini project was the culmination of my July 2025 Developer Foundations lear
 
 ## 📸 Screenshots
 
-Add your screenshots here:
+Here are the CLI in action:
 
-- screenshots/view_table.png
-- screenshots/add_command.png
-- screenshots/completed_output.png
+### Add Task
 
-Reference them in your README using relative paths like:
+![Add Task](screenshots/Screenshot-add-tasks.png)
 
-```markdown
-![Task View](screenshots/view_table.png)
-```
+### Mark Task as Completed
+
+![Task Completed](screenshots/Screenshot-completed.png)
+
+### Update Task
+
+![Update Task](screenshots/Screenshot-update.png)
+
+### Clear All Tasks
+
+![Clear Tasks](screenshots/Screenshot%20-clear.png)
 
 ---
 

@@ -328,7 +328,7 @@ SOFTWARE.
 
 ## 👨‍💻 Author
 
-**[Your Name]** - _Trinity Developer Foundations July 2025_
+**[L.Guna]** - _Trinity Developer Foundations July 2025_
 
 - GitHub: [@guna2007](https://github.com/guna2007)
 - Project Link: [https://github.com/guna2007/July-Project](https://github.com/guna2007/July-Project)
